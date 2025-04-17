@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Postcard from './components/Postcard';
+import Likebutton from './components/likebutton';
 
 function App() {
 
@@ -31,7 +33,19 @@ function App() {
 
   return (
     <>
-      
+        <h1>Social media application</h1>
+      <div style={{display:"flex",margin:"10px"}}>
+        {
+          initialPosts.map((post)=>(<Postcard
+          key={post.id}
+          profileImage={post.profileImage}
+          username={post.username}
+          content={post.content}
+          isLiked={post.isLiked}
+          />
+        ))
+        }
+    </div>
     </>
   )
 }
